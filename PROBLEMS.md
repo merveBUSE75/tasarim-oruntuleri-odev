@@ -1,3 +1,5 @@
+
+     BENİM GÖRDÜĞÜM SORUNLAR 
 1.	Single Responsibility Principle (SRP - Tek Sorumluluk Prensibi) İhlali
 Bu kısımda bir sınıfın sadece bir sorumluluğu olmalıdır ama kodda OyunNesnesi sınıfının birden fazla sorumluluğu olduğu için tek sorumluluk prensibini ihlal ediyor .
 SORUN:OyunNesnesi sınıfı hem oyuncu hareketini, hem düşman yapay zekasını, hem de eşya toplama mantığını barındırıyor.Bu yüzden kod karmaşıklaşır.
@@ -21,4 +23,7 @@ AÇIKLAMA: Örneğin bir ESYA (iksir), guncelle metoduna ihtiyaç duymaz ama mev
 
 5.	Dependency Inversion Principle (DIP - Bağımlılıkların Tersine Çevrilmesi Prensibi) İhlali
 Bu prensip de yüksek seviyeli modüller, düşük seviye modüllere bağımli olmalıdır .Her ikiside soyutlamalra  yani arayüzlere bağımlı olmalıdır. SORUN: Üst seviye mantık (oyun döngüsü), alt seviye detaylara (nesne tiplerine) doğrudan bağımlı.AÇIKLAMA: main fonksiyonu, somut nesne tiplerini (NesneTipi::OYUNCU) bilmek zorunda. Oysa sistem soyutlamalara (interface) bağımlı olmalıydı.
+
+
+AL'IN GÖRDÜĞÜ SORUNLAR 
 
