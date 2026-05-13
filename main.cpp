@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-// Nesne tiplerini belirlemek için basit bir enum
+// Nesne tiplerini belirlemek için 
 enum class NesneTipi { OYUNCU, DUSMAN, ESYA };
 
 class OyunNesnesi {
@@ -41,7 +41,7 @@ public:
 };
 
 int main() {
-    // Nesneleri tek tek elle oluşturuyoruz (Creational sorun)
+    // Nesneleri tek tek elle oluşturuyoruz 
     OyunNesnesi kahraman(NesneTipi::OYUNCU, "Savaşçı", 100);
     OyunNesnesi canavar(NesneTipi::DUSMAN, "Ork", 50);
     OyunNesnesi iksir(NesneTipi::ESYA, "Can İksiri", 0);
