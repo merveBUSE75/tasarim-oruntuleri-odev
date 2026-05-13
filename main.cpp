@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 
-// Nesne tiplerini belirlemek için 
 enum class NesneTipi { OYUNCU, DUSMAN, ESYA };
 
 class OyunNesnesi {
@@ -13,8 +12,6 @@ public:
 
     OyunNesnesi(NesneTipi t, std::string i, int c) : tip(t), isim(i), can(c) {}
 
-    // TÜM DAVRANIŞLAR TEK BİR FONKSİYONDA VE IF-ELSE BLOKLARIYLA AYRILMIŞ
-    // Bu, ödevde düzeltmemiz istenen temel sorun! (Konu C)
     void guncelle() {
         if (tip == NesneTipi::OYUNCU) {
             std::cout << "[OYUNCU] " << isim << " hareket ediyor. Klavye girdisi bekleniyor...\n";
@@ -41,7 +38,7 @@ public:
 };
 
 int main() {
-    // Nesneleri tek tek elle oluşturuyoruz 
+    
     OyunNesnesi kahraman(NesneTipi::OYUNCU, "Savaşçı", 100);
     OyunNesnesi canavar(NesneTipi::DUSMAN, "Ork", 50);
     OyunNesnesi iksir(NesneTipi::ESYA, "Can İksiri", 0);
