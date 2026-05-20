@@ -19,3 +19,32 @@ Daha Temiz Kod: Kodun okunması çok daha kolaylaştı. Yarın bir gün nesneler
 
 
 
+ ## faz-1
+
+```mermaid
+classDiagram
+    class OyunNesnesi {
+        <<Abstract>>
+        +string isim
+        +guncelle()*
+        +etkilesimYap()*
+    }
+    class Oyuncu {
+        +guncelle()
+        +etkilesimYap()
+    }
+    class Dusman {
+        +guncelle()
+        +etkilesimYap()
+    }
+    class Esya {
+        +guncelle()
+        +etkilesimYap()
+    }
+    class NesneFabrikasi {
+        +olustur(NesneTipi, string) OyunNesnesi
+    }
+
+    OyunNesnesi <|-- Oyuncu
+
+
