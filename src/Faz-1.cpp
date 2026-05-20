@@ -91,8 +91,6 @@ int main() {
             mevcutNesne->etkilesimYap();
         }
     }
-
-    // Bellek Temizliği (Hafıza sızıntısını önlemek için amatör el ile delete)
     for (OyunNesnesi* mevcutNesne : oyunDunyasi) {
         delete mevcutNesne;
     }
