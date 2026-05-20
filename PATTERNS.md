@@ -17,7 +17,8 @@ Main Fonksiyonu Sadeleşti: main fonksiyonu artık arka planda nesnelerin nasıl
 
 Daha Temiz Kod: Kodun okunması çok daha kolaylaştı. Yarın bir gün nesnelerin can değerlerini veya parametrelerini değiştirmek istersem, projenin her yerini değil sadece fabrika sınıfının içini
 
-##  faz-0
+
+
 classDiagram
     class NesneTipi {
         <<enumeration>>
@@ -44,7 +45,10 @@ classDiagram
 
     OyunNesnesi --> NesneTipi : kullanir
     main ..> OyunNesnesi : doğrudan bağımlı (new)
-## faz-1
+
+
+
+
 
 classDiagram
     class NesneTipi {
