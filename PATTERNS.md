@@ -31,6 +31,8 @@ classDiagram
     }
 
     main ..> OyunNesnesi
+```
+## faz-1
 
 
 
