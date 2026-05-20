@@ -26,6 +26,7 @@ classDiagram
     class OyunNesnesi {
         <<Abstract>>
         +string isim
+        +int can
         +guncelle()*
         +etkilesimYap()*
     }
@@ -42,9 +43,15 @@ classDiagram
         +etkilesimYap()
     }
     class NesneFabrikasi {
-        +olustur(NesneTipi, string) OyunNesnesi
+        +nesneOlustur(NesneTipi, string, int) OyunNesnesi
+    }
+    class main {
     }
 
     OyunNesnesi <|-- Oyuncu
-
+    OyunNesnesi <|-- Dusman
+    OyunNesnesi <|-- Esya
+    NesneFabrikasi ..> OyunNesnesi
+    main ..> NesneFabrikasi
+    main ..> OyunNesnesi
 
