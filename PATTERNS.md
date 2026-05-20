@@ -3,13 +3,16 @@
 ## Uygulanan Örüntü: Factory Method (Fabrika Metodu)
 
 ### 1. Nerede Kullanıldı?
-Projenin nesne yaratma kısmında kullandım. Daha önce `main.cpp` içerisinde elle oluşturulan **Oyuncu**, **Düşman** ve **Eşya** nesneleri, artık merkezi bir `NesneFabrikasi` sınıfı üzerinden üretilmektedir.Sınıfları somut nesnelere bağımlı olmaktan kurtarmak için.
+Projedeki oyuncu, düşman ve eşya gibi nesnelerin oluşturulduğu kısımda kullandım. Eskiden bunları main.cpp içinde tek tek el yazısıyla new diyerek üretiyordum. Şimdi ise hepsini NesneFabrikasi diye tek bir sınıfın içine topladım ve üretimi oradan yapıyorum.
 
 ### 2. Neden Seçildi?
-* **Bağımlılıkların Tersine Çevrilmesi :** `main` fonksiyonunun somut sınıflara olan doğrudan bağımlılığını kesmek için.Kodun esnek olması için .
-* **Açık/Kapalı Prensibi:** Yeni bir nesne tipi eklemek istediğimizde mevcut oyun döngüsü koduna dokunmadan,yeni sınıf ekliyebiliyoruz . Yeni sınıf eklerken mevcut kodun bozulmaması gerekiyor bu yüzden.
+if-else Yapılarından Kurtulmak İçin: Eski kodda main fonksiyonu hangi nesnenin nasıl kurulacağını, içine ne parametre alacağını tek tek bilmek zorundaydı. Bu da kodları birbirine çok bağlıyordu. Fabrika kullanarak main'i bu dertten kurtardım.
+
+Yeni Karakter Ekleme Kolaylığı (Open/Closed): Oyuna ileride yeni bir nesne tipi (mesela Tuzak veya NPC) eklemek istediğimde, gidip main içindeki çalışan oyun döngüsünü bozmak istemiyorum. Yeni bir tip geldiğinde mevcut koda dokunmadan, sadece yeni bir sınıf açıp sisteme ekleyebilmek için bu örüntüyü seçtim.
 
 ### 3. Ne Kazandırdı?
-* **Tek Sorumluluk:** Nesne yaratma sorumluluğu tek bir merkezde toplandı.
-* **Esneklik:** Kodun okunabilirliği arttı ve hata payı azaldı.
-* **Soyutlama:** İstemci kod (main), nesnelerin nasıl yaratıldığıyla değil, sadece ne iş yaptıklarıyla ilgilenir hale geldi.
+Kodlar Birbirine Karışmıyor (Tek Sorumluluk): Nesnelerin oyun içindeki görevleri ile onların ilk başta nasıl üretileceği işini birbirinden ayırdım. Üretim işi artık tek bir merkezden dönüyor.
+
+Main Fonksiyonu Sadeleşti: main fonksiyonu artık arka planda nesnelerin nasıl yaratıldığıyla, hangi constructor'ı çağırdığıyla ilgilenmiyor. Sadece fabrikaya "bana bir düşman ver" diyor ve işine bakıyor.
+
+Daha Temiz Kod: Kodun okunması çok daha kolaylaştı. Yarın bir gün nesnelerin can değerlerini veya parametrelerini değiştirmek istersem, projenin her yerini değil sadece fabrika sınıfının içini değiştirmem yetecek. Hata yapma ihtimalim azaldı.
