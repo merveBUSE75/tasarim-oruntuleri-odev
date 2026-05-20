@@ -1,4 +1,4 @@
-# FAZ-1
+# FAZ-0
    ##  BENİM GÖRDÜĞÜM SORUNLAR## 
 1.	Single Responsibility Principle (SRP - Tek Sorumluluk Prensibi) İhlali
 Bu kısımda bir sınıfın sadece bir sorumluluğu olmalıdır ama kodda OyunNesnesi sınıfının birden fazla sorumluluğu olduğu için tek sorumluluk prensibini ihlal ediyor .
