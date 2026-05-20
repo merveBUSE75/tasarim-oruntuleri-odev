@@ -13,6 +13,7 @@
 - **Neden:** Bu yapı, Faz 0'da `main` içerisinde bulunan karmaşık `if-else` bloklarını ortadan kaldırarak kodun esnekliğini artırdığı için tercih edildi.
 - **Farklılıklar:** AI'ın ilk sunduğu karmaşık C++ kütüphaneleri yerine, ödevin "amatör stil" kuralına sadık kalmak adına daha basit bir mantık ve Türkçe değişken isimleri/açıklamalar kullanılarak kod yazıldı. Ayrıca, sınıf yapısı anlaşılır olması için en sade haliyle tutuldu.
 
+
 ## 4. Faz 1 UML Diyagramı (Factory Method)
 
 ```mermaid
