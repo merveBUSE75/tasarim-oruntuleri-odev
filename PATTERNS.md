@@ -33,7 +33,7 @@ classDiagram
     main ..> OyunNesnesi
 
 
- ## faz-1
+
 
 ```mermaid
 classDiagram
