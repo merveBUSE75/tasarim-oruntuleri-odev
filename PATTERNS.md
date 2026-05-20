@@ -18,8 +18,6 @@ Main Fonksiyonu Sadeleşti: main fonksiyonu artık arka planda nesnelerin nasıl
 Daha Temiz Kod: Kodun okunması çok daha kolaylaştı. Yarın bir gün nesnelerin can değerlerini veya parametrelerini değiştirmek istersem, projenin her yerini değil sadece fabrika sınıfının içini
 
 
-```mermaid
-
 classDiagram
     class NesneTipi {
         <<enumeration>>
@@ -38,80 +36,8 @@ classDiagram
     }
 
     class main {
-        // İstemci kod
-        // OyunNesnesi kahraman
-        // OyunNesnesi canavar
-        // OyunNesnesi iksir
     }
 
-    OyunNesnesi --> NesneTipi : kullanir
-    main ..> OyunNesnesi : doğrudan bağımlı (new)
-
-
-
-
-
-classDiagram
-    class NesneTipi {
-        <<enumeration>>
-        OYUNCU
-        DUSMAN
-        ESYA
-    }
-
-    class OyunNesnesi {
-        <<abstract>>
-        +string isim
-        +int can
-        +OyunNesnesi(string i, int c)
-        +virtual ~OyunNesnesi()
-        +virtual guncelle()* void
-        +virtual etkilesimYap()* void
-    }
-
-    class Oyuncu {
-        +Oyuncu(string i, int c)
-        +guncelle() void
-        +etkilesimYap() void
-    }
-
-    class Dusman {
-        +Dusman(string i, int c)
-        +guncelle() void
-        +etkilesimYap() void
-    }
-
-    class Esya {
-        +Esya(string i, int c)
-        +guncelle() void
-        +etkilesimYap() void
-    }
-
-    class NesneFabrikasi {
-        +static nesneOlustur(NesneTipi tip, string isim, int can) OyunNesnesi*
-    }
-
-    class main {
-        // İstemci kod
-        // vector<OyunNesnesi*> oyunDunyasi
-    }
-
-    OyunNesnesi <|-- Oyuncu : türetilir
-    OyunNesnesi <|-- Dusman : türetilir
-    OyunNesnesi <|-- Esya : türetilir
-
-    NesneFabrikasi ..> NesneTipi : kullanir
-    NesneFabrikasi ..> OyunNesnesi : üretir (Return Type)
-    
-    main ..> NesneFabrikasi : sadece fabrikaya bağımlı
-    main ..> OyunNesnesi : sadece soyut arayüzü kullanır
-
-
-
-
-
-
-
-
-
+    OyunNesnesi --> NesneTipi
+    main ..> OyunNesnesi
 değiştirmem yetecek. Hata yapma ihtimalim azaldı.
