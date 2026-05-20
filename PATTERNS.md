@@ -18,26 +18,4 @@ Main Fonksiyonu Sadeleşti: main fonksiyonu artık arka planda nesnelerin nasıl
 Daha Temiz Kod: Kodun okunması çok daha kolaylaştı. Yarın bir gün nesnelerin can değerlerini veya parametrelerini değiştirmek istersem, projenin her yerini değil sadece fabrika sınıfının içini
 
 
-classDiagram
-    class NesneTipi {
-        <<enumeration>>
-        OYUNCU
-        DUSMAN
-        ESYA
-    }
 
-    class OyunNesnesi {
-        +NesneTipi tip
-        +string isim
-        +int can
-        +OyunNesnesi(NesneTipi t, string i, int c)
-        +guncelle()
-        +etkilesimYap()
-    }
-
-    class main {
-    }
-
-    OyunNesnesi --> NesneTipi
-    main ..> OyunNesnesi
-değiştirmem yetecek. Hata yapma ihtimalim azaldı.
