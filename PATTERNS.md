@@ -17,6 +17,20 @@ Main Fonksiyonu Sadeleşti: main fonksiyonu artık arka planda nesnelerin nasıl
 
 Daha Temiz Kod: Kodun okunması çok daha kolaylaştı. Yarın bir gün nesnelerin can değerlerini veya parametrelerini değiştirmek istersem, projenin her yerini değil sadece fabrika sınıfının içini
 
+## faz-0 
+```mermaid
+classDiagram
+    class OyunNesnesi {
+        +NesneTipi tip
+        +string isim
+        +int can
+        +guncelle()
+        +etkilesimYap()
+    }
+    class main {
+    }
+
+    main ..> OyunNesnesi
 
 
  ## faz-1
