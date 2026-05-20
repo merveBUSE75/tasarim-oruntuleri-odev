@@ -10,8 +10,8 @@
 
 ## 3. Siz Ne Uyguladınız ve Neden Farklı/Aynı?
 - **Uygulanan:** AI'ın önerdiği Factory Method yapısı ve sınıf hiyerarşisi (Oyuncu, Dusman, Esya) birebir uygulandı.
-- **Neden:** Bu yapı, Faz 0'da `main` içerisinde bulunan karmaşık `if-else` bloklarını ortadan kaldırarak kodun esnekliğini artırdığı için tercih edildi.
-- **Farklılıklar:** AI'ın ilk sunduğu karmaşık C++ kütüphaneleri yerine, ödevin "amatör stil" kuralına sadık kalmak adına daha basit bir mantık ve Türkçe değişken isimleri/açıklamalar kullanılarak kod yazıldı. Ayrıca, sınıf yapısı anlaşılır olması için en sade haliyle tutuldu.
+- **Neden ayni** Bu yapı, Faz 0'da `main` içerisinde bulunan karmaşık `if-else` bloklarını ortadan kaldırarak kodun esnekliğini artırdığı için tercih edildi.
+Çünkü koddaki sorun çok netti ve yapay zekanın önerdiği Factory Method yapısı bu sorunu çözdü. Başlangıç kodunda main fonksiyonu, hangi nesnenin nasıl üretileceğini tek tek el yazısıyla bilmek zorundaydı. Bu durum sınıflar arasında bağlılık yaratıyor ve oyuna yeni bir nesne türü eklemeyi zorlaştırıyordu . Önerilen mimarisi, nesne yaratma sürecini tek bir merkezde toplayarak bu bağımlılığı kökten çözdü. Yapay zekanın sunduğu çözüm, projenin bu fazdaki "nesne üretimini soyutlama" hedefini eksiksiz karşıladığı ve kodun bakımını doğrudan kolaylaştırdığı için yapıda çok bir değişikliğe gidilmedi.
 
 ## 4. Faz 1 UML Diyagramı (Factory Method)
 
