@@ -1,5 +1,5 @@
-
-     BENİM GÖRDÜĞÜM SORUNLAR 
+# FAZ-1
+   ##  BENİM GÖRDÜĞÜM SORUNLAR## 
 1.	Single Responsibility Principle (SRP - Tek Sorumluluk Prensibi) İhlali
 Bu kısımda bir sınıfın sadece bir sorumluluğu olmalıdır ama kodda OyunNesnesi sınıfının birden fazla sorumluluğu olduğu için tek sorumluluk prensibini ihlal ediyor .
 SORUN:OyunNesnesi sınıfı hem oyuncu hareketini, hem düşman yapay zekasını, hem de eşya toplama mantığını barındırıyor.Bu yüzden kod karmaşıklaşır.
