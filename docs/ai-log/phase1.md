@@ -1,7 +1,7 @@
 # AI Log - Faz 1
 
 ## 1. AI'a Ne Sordunuz? (Prompt)
-"GitHub Desktop üzerinden phase-1 branch'ini nasıl açabilirim? Ayrıca Faz 1 gereksinimleri olan nesne yaratma sorumluluğunu merkezi bir yapıya taşıma (Factory Method) işlemini kodumda nasıl uygularım? Mevcut kodumu amatör bir stilde kalarak nasıl iyileştirebilirim?"
+"GitHub Desktop üzerinden phase-1 branch'ini nasıl açabilirim? Ayrıca Faz 1 gereksinimleri olan nesne yaratma sorumluluğunu merkezi bir yapıya taşıma (Factory Method) işlemini kodumda nasıl uygularım? 
 
 ## 2. AI Ne Yanıtladı? (Özet)
 - **GitHub Süreci:** Branch açma, commit yapma ve Issue (#1) ile bağlama adımları detaylandırıldı.
@@ -11,7 +11,7 @@
 ## 3. Siz Ne Uyguladınız ve Neden Farklı/Aynı?
 - **Uygulanan:** AI'ın önerdiği Factory Method yapısı ve sınıf hiyerarşisi (Oyuncu, Dusman, Esya) birebir uygulandı.
 - **Neden:** Bu yapı, Faz 0'da `main` içerisinde bulunan karmaşık `if-else` bloklarını ortadan kaldırarak kodun esnekliğini artırdığı için tercih edildi.
-- **Farklılıklar:** AI'ın ilk sunduğu karmaşık C++ kütüphaneleri yerine, ödevin "amatör stil" kuralına sadık kalmak adına daha basit bir mantık ve Türkçe değişken isimleri/açıklamalar kullanılarak kod yazıldı. Ayrıca, sınıf yapısı anlaşılır olması için en sade haliyle tutuldu.
+- **Farklılıklar:** AI'ın ilk sunduğu karmaşık C++ kütüphaneleri yerine, sınıf yapısı anlaşılır olması için en sade haliyle yazıldi.
 
 
 ## 4. Faz 1 UML Diyagramı (Factory Method)
