@@ -52,7 +52,7 @@ classDiagram
     main ..> NesneFabrikasi
     main ..> OyunNesnesi
 ```
-## faz2
+## faz-2
 ```mermaid
 classDiagram
     class OyunNesnesi {
@@ -116,3 +116,46 @@ classDiagram
 
     NesneFabrikasi ..> OyunNesnesi : uretir
 ```
+
+## Son Durum Faz 3 diyagrami
+
+```mermaid
+classDiagram
+    class OyunNesnesi {
+        <<Abstract>>
+        +string isim
+        +int can
+        +dinleyiciEkle()
+        +olayYayinla()
+        +guncelle()*
+        +etkilesimYap()*
+    }
+    class Oyuncu {
+        -HareketStratejisi* mevcutHareket
+        +hareketStratejisiDegistir()
+    }
+    class Dusman {
+    }
+    class SesSistemiAdapter {
+        -EskiSesSistemi* hariciSes
+    }
+    class NesneDecorator {
+        #OyunNesnesi* sarilanNesne
+    }
+    class HareketStratejisi {
+        <<Interface>>
+        +hareketEt()*
+    }
+    class OlayDinleyici {
+        <<Interface>>
+        +onOlayGerceklesti()*
+    }
+
+    OyunNesnesi <|-- Oyuncu
+    OyunNesnesi <|-- Dusman
+    OyunNesnesi <|-- SesSistemiAdapter
+    OyunNesnesi <|-- NesneDecorator
+    
+    Oyuncu --> HareketStratejisi
+    OyunNesnesi --> OlayDinleyici
+    NesneDecorator --> OyunNesnesi
