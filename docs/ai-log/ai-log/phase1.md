@@ -3,6 +3,7 @@
 ## 1. AI'a Ne Sordunuz? (Prompt)
 "GitHub Desktop üzerinden phase-1 branch'ini nasıl açabilirim? Ayrıca Faz 1 gereksinimleri olan nesne yaratma sorumluluğunu merkezi bir yapıya taşıma (Factory Method) işlemini kodumda nasıl uygularım? Mevcut kodumu amatör bir stilde kalarak nasıl iyileştirebilirim?"
 
+
 ## 2. AI Ne Yanıtladı? (Özet)
 - **GitHub Süreci:** Branch açma, commit yapma ve Issue (#1) ile bağlama adımları detaylandırıldı.
 - **Tasarım Örüntüsü:** Nesne oluşturma karmaşasını çözmek için **Factory Method** (Fabrika Metodu) önerildi.
