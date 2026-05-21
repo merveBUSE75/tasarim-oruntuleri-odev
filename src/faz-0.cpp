@@ -43,13 +43,13 @@ int main() {
     OyunNesnesi canavar(NesneTipi::DUSMAN, "Ork", 50);
     OyunNesnesi iksir(NesneTipi::ESYA, "Can İksiri", 0);
 
-    std::cout << "--- Oyun Basliyor ---" << std::endl;
+    std::cout << "--- --OYUN BASLİYOR-- ---" << std::endl;
     
     kahraman.guncelle();
     canavar.guncelle();
     iksir.guncelle();
 
-    std::cout << "\n--- Etkilesimler ---" << std::endl;
+    std::cout << "\n--- -- ETKİLEŞİMLER -- ---" << std::endl;
     
     kahraman.etkilesimYap();
     canavar.etkilesimYap();
