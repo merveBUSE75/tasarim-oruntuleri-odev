@@ -1,7 +1,10 @@
-# ogrenci bilgileri
-adi:merve buse 
+# ögrenci bilgileri
+adi:merve buse
+
 soyadı:demiray
+
 numara:241229055
+
 bölümü:yazılım mühendisliği
 
 # konu seçimi 
