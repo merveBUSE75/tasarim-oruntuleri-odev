@@ -1,3 +1,12 @@
+# ogrenci bilgileri
+adi:merve buse 
+soyadı:demiray
+numara:241229055
+bölümü:yazılım mühendisliği
+
+# konu seçimi 
+konu :mini oyun 
+
 # Mini Oyun Motoru Modeli (Yazılım Tasarım Örüntüleri Ödevi)
 
 Bu proje, Yazılım Tasarım Örüntüleri dersi kapsamında, başlangıçta hantal ve spagetti kod olarak yazılmış bir oyun nesnesi sisteminin aşama aşama tasarım kalıpları kullanılarak esnek ve genişletilebilir hale getirilmiş bir simülasyonudur.
