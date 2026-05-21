@@ -52,7 +52,7 @@ classDiagram
     main ..> NesneFabrikasi
     main ..> OyunNesnesi
 ```
-
+## faz2
 ```mermaid
 classDiagram
     class OyunNesnesi {
