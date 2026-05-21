@@ -4,17 +4,12 @@
 
 enum class NesneTipi { OYUNCU, DUSMAN, ADAPTER };
 
-// =================================================================
-// 1. BEHAVIORAL PATTERN - 1: OBSERVER (GÖZLEMCİ)
-// =================================================================
-// Oyun içindeki olayları dinleyecek olanların (Gözlemcilerin) arayüzü
 class OlayDinleyici {
 public:
     virtual ~OlayDinleyici() {}
     virtual void onOlayGerceklesti(std::string olayTipi, std::string nesneIsmi) = 0;
 };
 
-// Somut Gözlemci: Başarı Sistemi (Achievement System)
 class BasariSistemi : public OlayDinleyici {
 public:
     void onOlayGerceklesti(std::string olayTipi, std::string nesneIsmi) override {
@@ -24,25 +19,18 @@ public:
     }
 };
 
-// =================================================================
-// 2. BEHAVIORAL PATTERN - 2: STRATEGY (STRATEJİ)
-// =================================================================
-// Hareket davranışlarının ortak arayüzü
+
 class HareketStratejisi {
 public:
     virtual ~HareketStratejisi() {}
     virtual void hareketEt(std::string isim) = 0;
 };
-
-// Somut Strateji 1: Yürüyerek Hareket
 class YuruyerekHareket : public HareketStratejisi {
 public:
     void hareketEt(std::string isim) override {
         std::cout << "[HAREKET] " << isim << " yavaşça yürüyerek ilerliyor.\n";
     }
 };
-
-// Somut Strateji 2: Uçarak Hareket (OCP İSPATI: Mevcut kodu bozmadan eklenen yeni davranış)
 class UcarakHareket : public HareketStratejisi {
 public:
     void hareketEt(std::string isim) override {
@@ -50,12 +38,8 @@ public:
     }
 };
 
-// =================================================================
-// 3. EN BAŞTAN BERİ GELEN TEMEL OYUN NESNESİ VE ALT SINIFLARI
-// =================================================================
 class OyunNesnesi {
 protected:
-    // Observer için dinleyicileri tutan liste
     std::vector<OlayDinleyici*> dinleyiciler;
 public:
     std::string isim;
@@ -67,7 +51,6 @@ public:
     virtual void guncelle() = 0;
     virtual void etkilesimYap() = 0;
 
-    // Observer Metotları
     void dinleyiciEkle(OlayDinleyici* d) {
         dinleyiciler.push_back(d);
     }
@@ -88,8 +71,7 @@ public:
     ~Oyuncu() {
         delete mevcutHareket;
     }
-    
-    // Çalışma zamanında hareketi değiştirmeyi sağlayan metot (Strategy Setter)
+
     void hareketStratejisiDegistir(HareketStratejisi* yeniStrateji) {
         if (mevcutHareket != nullptr) delete mevcutHareket;
         mevcutHareket = yeniStrateji;
@@ -118,9 +100,6 @@ public:
     }
 };
 
-// =================================================================
-// FAZ 2'DEN GELEN ADAPTER PATTERN
-// =================================================================
 class EskiSesSistemi {
 public:
     void eskiSesiCal(std::string dosyaAdi) {
@@ -140,9 +119,7 @@ public:
     void etkilesimYap() override { hariciSes->eskiSesiCal(isim + ".wav"); }
 };
 
-// =================================================================
-// FAZ 1'DEN GELEN FABRİKA
-// =================================================================
+
 class NesneFabrikasi {
 public:
     static OyunNesnesi* nesneOlustur(NesneTipi tip, std::string isim, int can) {
@@ -153,20 +130,13 @@ public:
     }
 };
 
-// =================================================================
-// MAIN - İSTEMCİ KODU
-// =================================================================
+
 int main() {
     std::vector<OyunNesnesi*> oyunDunyasi;
-    
-    // Başarı sistemi (Gözlemci) nesnesi oluşturuluyor
     OlayDinleyici* basariTakipçisi = new BasariSistemi();
 
-    // Nesneler fabrikadan alınıyor
     OyunNesnesi* kahraman = NesneFabrikasi::nesneOlustur(NesneTipi::OYUNCU, "Savaşçı", 100);
     OyunNesnesi* canavar = NesneFabrikasi::nesneOlustur(NesneTipi::DUSMAN, "Ork", 50);
-
-    // Düşmanın ölüm olayını başarı sistemine bağlıyoruz (Observer Kayıt)
     canavar->dinleyiciEkle(basariTakipçisi);
 
     oyunDunyasi.push_back(kahraman);
@@ -174,25 +144,19 @@ int main() {
 
     std::cout << "--- Oyun Basliyor (Faz 3 - Behavioral) ---\n";
     
-   
     kahraman->guncelle();
     
-    // STRATEGY VE OCP İSPATI: 
-    // Oyuncu sınıfının kodunu hiç değiştirmeden, çalışma zamanında hareket stratejisini değiştiriyoruz
-    Oyuncu* asilOyuncu = dynamic_cast<Oyuncu*>(kahraman);
+     Oyuncu* asilOyuncu = dynamic_cast<Oyuncu*>(kahraman);
     if (asilOyuncu != nullptr) {
         asilOyuncu->hareketStratejisiDegistir(new UcarakHareket());
     }
-    
-    // 2. Durum: Kahraman artık yeni eklenen stratejiyle (Uçarak) hareket eder
+ 
     std::cout << "\n--- Strateji Degistikten Sonra ---\n";
     kahraman->guncelle();
 
-    // OBSERVER İSPATI: Düşman etkileşime girdiğinde ölecek ve başarı sistemi otomatik tetiklenecek
     std::cout << "\n--- Etkilesimler ve Tetiklenen Olaylar ---\n";
     canavar->etkilesimYap();
 
-    // Temizlik
     delete kahraman;
     delete canavar;
     delete basariTakipçisi;
