@@ -47,7 +47,7 @@ public:
 
 class SesSistemiAdapter : public OyunNesnesi {
 private:
-    EskiSesSistemi* hariciSes; // Sıkı bağlılığı önlemek için nesne referansı tutuyoruz
+    EskiSesSistemi* hariciSes; 
 public:
     SesSistemiAdapter(std::string i) : OyunNesnesi(i, 0) {
         hariciSes = new EskiSesSistemi();
@@ -56,18 +56,17 @@ public:
         delete hariciSes;
     }
     void guncelle() override {
-        // Ses sisteminin her karede yapması gereken işlem
+        
         std::cout << "[ADAPTER] Ses motoru arka planda senkronize ediliyor.\n";
     }
     void etkilesimYap() override {
-        // Sistem bizim etkilesimYap metodumuzu çağırdığında, biz arka plandaki eski metodu tetikliyoruz
         hariciSes->eskiSesiCal(isim + "_efekt.wav");
     }
 };
 
 class NesneDecorator : public OyunNesnesi {
 protected:
-    OyunNesnesi* sarilanNesne; // İçine süslenecek asıl nesneyi alır
+    OyunNesnesi* sarilanNesne; 
 public:
     NesneDecorator(OyunNesnesi* nesne) : OyunNesnesi(nesne->isim, nesne->can), sarilanNesne(nesne) {}
     
@@ -83,11 +82,10 @@ public:
 class KalkanDecorator : public NesneDecorator {
 public:
     KalkanDecorator(OyunNesnesi* nesne) : NesneDecorator(nesne) {
-        // Süslenen nesnenin canını kalkan kadar arttırıyoruz
         sarilanNesne->can += 50; 
     }
     void guncelle() override {
-        NesneDecorator::guncelle(); // Asıl nesne görevini yapsın
+        NesneDecorator::guncelle(); 
         std::cout << " --> [SÜS] " << sarilanNesne->isim << " üzerinde aktif Mavi Kalkan parlıyor!\n";
     }
 };
@@ -96,7 +94,7 @@ class ZehirDecorator : public NesneDecorator {
 public:
     ZehirDecorator(OyunNesnesi* nesne) : NesneDecorator(nesne) {}
     void etkilesimYap() override {
-        NesneDecorator::etkilesimYap(); // Asıl nesne etkileşime girsin
+        NesneDecorator::etkilesimYap(); 
         std::cout << " --> [SÜS] " << sarilanNesne->isim << " etrafındakilere ekstra Zehir Hasarı veriyor!\n";
     }
 };
